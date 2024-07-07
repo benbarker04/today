@@ -1,0 +1,19 @@
+.Row {
+  height: calc(100vh - 81px);
+}
+
+.link {
+  text-align: center;
+  display: block;
+  margin: auto;
+  color: black !important;
+}
+
+.link:hover{
+  color: darkgray !important;
+}
+
+p{
+  text-align: center;
+  display: block;
+}

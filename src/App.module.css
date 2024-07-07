@@ -3,39 +3,27 @@
     min-height: 100vh;
 }
 
+.Main {
+    padding-top: 80px !important;
+}
+
 * {
     box-sizing: border-box;
 }
 
+.Content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+}
+
+.FillerImage {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
 .logo {
     font-family: "Playwrite IT Moderna", cursive;
-}
-
-a {
-    color: #cfced3;
-    font-size: 1.6rem;
-    padding: 7px;
-    vertical-align: middle;
-  }
-
-a:hover {
-    color: black;
-    transition: color ease-in-out 0.3s;
-}
-
-a:hover i {
-    color: #000000;
-    transition: color ease-in-out 0.3s;
-  }
-
-i {
-    color: #cfced3;
-    font-size: 1.6rem;
-    padding: 7px;
-    vertical-align: middle;
-  }
-
-i:hover {
-    color: black;
-    transition: color ease-in-out 0.3s;
 }

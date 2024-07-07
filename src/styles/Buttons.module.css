@@ -1,0 +1,16 @@
+.black{
+    background-color: black;
+    border-color: black;
+}
+
+.black:hover{
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+.black:active {
+    background-color: grey !important;
+    border-color: grey  !important;
+    
+}
