@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import SignUpForm from '../components/SignUpForm'
-import { CurrentUserContext } from '../App'
+import { useCurrentUser } from '../context/CurrentUserContext'
 
 function Home() {
-    const currentUser = useContext(CurrentUserContext)
+    const currentUser = useCurrentUser()
     const loggedIn = <><h1>You are logged in!</h1></>
     const loggedOut = <><SignUpForm/></>
 
