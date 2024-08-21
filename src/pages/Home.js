@@ -4,11 +4,11 @@ import { useCurrentUser } from '../context/CurrentUserContext'
 
 function Home() {
     const currentUser = useCurrentUser()
-    const loggedIn = <><h1>You are logged in!</h1></>
-    const loggedOut = <><SignUpForm/></>
+    const loggedInPage = <><h1>You are logged in!</h1></>
+    const loggedOutPage = <><SignUpForm/></>
 
   return (
-    <div>{currentUser ? loggedIn : loggedOut}</div>
+    <div>{currentUser ? loggedInPage : loggedOutPage}</div>
   )
 }
 
