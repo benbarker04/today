@@ -3,7 +3,8 @@
     border: 1px solid #dadadf;
     position: fixed;
 }
-a {
+
+.NavBar a {
     color: #cfced3;
     font-size: 1.6rem;
     padding: 7px;

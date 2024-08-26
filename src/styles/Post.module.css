@@ -1,0 +1,33 @@
+.Post {
+  background-color: #fafafa;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Post figure,
+h5 {
+  margin: 0 0;
+}
+
+.Heart {
+  color: red;
+}
+
+.Heart:hover {
+  color: grey;
+}
+
+.HeartOutline:hover {
+  color: red;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: grey;
+  transition: color ease-in-out 0.3s;
+}

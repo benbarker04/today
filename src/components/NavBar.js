@@ -16,7 +16,7 @@ function NavBar() {
     const ref = useRef(null)
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (ref.current && !ref.current.contains(event.target)){
+            if (ref.current && !ref.current.contains(event.target)) {
                 setExpanded(false)
             }
         }
@@ -24,14 +24,14 @@ function NavBar() {
         return () => {
             document.removeEventListener('mouseup', handleClickOutside)
         }
-    },[ref])
-    
+    }, [ref])
+
 
     const handSignOut = async () => {
         try {
             await axios.post("dj-rest-auth/logout/")
             setCurrentUser(null)
-        }catch (err){
+        } catch (err) {
             console.log(err)
         }
     }
@@ -42,7 +42,10 @@ function NavBar() {
         <NavLink to='/' onClick={handSignOut}><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign-Out</NavLink>
         <NavLink to={`/profiles/${currentUser?.profile_id}`}>{currentUser?.username}</NavLink>
     </>
-    const loggedOutIcons = <><NavLink to='/signin'><i class="fa-solid fa-right-to-bracket"></i>Sign-In</NavLink></>
+    const loggedOutIcons = <>
+        <NavLink to='/signup'><i class="fa-solid fa-user-plus"></i>Sign-Up</NavLink>
+        <NavLink to='/signin'><i class="fa-solid fa-right-to-bracket"></i>Sign-In</NavLink>
+    </>
 
     return (
         <Navbar expanded={expanded} className={navstyles.NavBar} fixed='top' bg="light" expand="lg">
