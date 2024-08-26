@@ -72,7 +72,7 @@ function SignInForm() {
                 </Col>
                 <Col md={6}
                     className={`my-auto d-none d-md-block p-2`}>
-                    <Image className={`${styles.FillerImage}`} src={signinimage} alt="Two friends smiling at their phone" />
+                    <Image className={`${styles.image}`} src={signinimage} alt="Two friends smiling at their phone" />
                 </Col>
             </Row></div>
     )

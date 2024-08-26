@@ -3,7 +3,7 @@
     min-height: 100vh;
 }
 
-.Main {
+.paddingtop {
     padding-top: 80px !important;
 }
 
@@ -18,7 +18,7 @@
     border: 1px solid #dadadf;
 }
 
-.FillerImage {
+.image {
     object-fit: contain;
     height: 100%;
     width: 100%;
@@ -26,4 +26,9 @@
 
 .logo {
     font-family: "Playwrite IT Moderna", cursive;
+}
+
+
+.hidden {
+    display: none;
 }

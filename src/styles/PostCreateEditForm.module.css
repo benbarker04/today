@@ -1,0 +1,9 @@
+.Container {
+    min-height: 343px;
+  }
+
+  .Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
+  }

@@ -1,9 +1,24 @@
-.black{
+.button {
+    font-size: 0.8rem;
+    align-self: center;
+    border-radius: 100px;
+    padding: 4px 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-width: 75px;
+}
+
+.button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.black {
     background-color: black;
     border-color: black;
 }
 
-.black:hover{
+.black:hover {
     background-color: white;
     border-color: black;
     color: black;
@@ -11,6 +26,6 @@
 
 .black:active {
     background-color: grey !important;
-    border-color: grey  !important;
-    
+    border-color: grey !important;
+
 }

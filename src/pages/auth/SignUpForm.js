@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import styles from "../App.module.css";
-import formStyles from '../styles/Form.module.css'
-import btnStyles from '../styles/Buttons.module.css'
+import styles from "../../App.module.css";
+import formStyles from '../../styles/Form.module.css'
+import btnStyles from '../../styles/Buttons.module.css'
 import { Form, Button, Col, Row, Container, Image, Alert } from "react-bootstrap";
-import signupimage from '../assets/two-people-looking-their-phones-one-them-is-looking-phone_905510-426.avif'
+import signupimage from '../../assets/two-people-looking-their-phones-one-them-is-looking-phone_905510-426.avif'
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
 import axios from "axios";
 
@@ -79,7 +79,7 @@ function SignUpForm() {
             </Col>
             <Col md={6}
                 className={`my-auto d-none d-md-block p-2`}>
-                <Image className={`${styles.FillerImage}`} src={signupimage} alt="Two friends smiling at their phone"/>
+                <Image className={`${styles.image}`} src={signupimage} alt="Two friends smiling at their phone"/>
             </Col>
         </Row>
 
