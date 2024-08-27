@@ -57,54 +57,50 @@ const Post = (props) => {
             console.log(err);
         }
     };
-    
+
 
     return (
-            <Card className={poststyles.Post}>
-                <Card.Body>
-                    <Media className='align-items-center justify-content-between'>
-                        <Link to={`/profiles/${profile_id}`}>
-                            {owner}
-                        </Link>
-                        <div className="d-flex align-items-center">
-                            <span>{updated_at}</span>
-                            {is_owner && Postview && "..."}
-                        </div>
-                    </Media>
-                </Card.Body>
-                <Link to={`/posts/${id}`}>
-                    <Card.Img src={image} alt={title} />
-                </Link>
-                <Card.Body>
-                    {title && <Card.Title className='text-center'>{title}</Card.Title>}
-                    {content && <Card.Text>{content}</Card.Text>}
-                    <div className={poststyles.postBar}>
-                        {is_owner ? (
-                            <OverlayTrigger placement='top' overlay={<Tooltip>You can't like your own post</Tooltip>}>
-                                <i className='far fa-heart' />
-                            </OverlayTrigger>
-                        ) : like_id ? (
-                            <span onClick={handleunlike}>
-                                <i className={`far fa-heart ${poststyles.Heart}`} />
-                            </span>
-                        ) : currentUser ? (
-                            <span onClick={handleLike}>
-                                <i className={`far fa-heart ${poststyles.HeartOutline}`} />
-                            </span>
-                        ) : (
-                            <OverlayTrigger placement='top' overlay={<Tooltip>You must be logged in to like posts</Tooltip>}>
-                                <i className='far fa-heart' />
-                            </OverlayTrigger>
-                        )}
-                        {likes_count}
-                        <Link to={`/posts/${id}`}>
-                            <i class="fa-regular fa-message"></i>
-                        </Link>
-                        {comments_count}
+        <Card className={poststyles.Post}>
+            <Card.Body>
+                <Media className='align-items-center justify-content-between'>
+                    <Link to={`/profiles/${profile_id}`}>
+                        {owner}
+                    </Link>
+                    <div className="d-flex align-items-center">
+                        <span>{updated_at}</span>
+                        {is_owner && Postview && "..."}
                     </div>
-                </Card.Body>
-            </Card>
-        )
-    }
+                </Media>
+            </Card.Body>
+            <Link to={`/posts/${id}`}>
+                <Card.Img src={image} alt={title} />
+            </Link>
+            <Card.Body>
+                {title && <Card.Title className='text-center'>{title}</Card.Title>}
+                {content && <Card.Text>{content}</Card.Text>}
+                <div className={poststyles.postBar}>
+                    {is_owner ? (
+                        <OverlayTrigger placement='top' overlay={<Tooltip>You can't like your own post</Tooltip>}>
+                            <i className='far fa-heart' />
+                        </OverlayTrigger>
+                    ) : like_id ? (
+                        <span onClick={handleunlike}>
+                            <i className={`far fa-heart ${poststyles.Heart}`} />
+                        </span>
+                    ) : (
+                        <span onClick={handleLike}>
+                            <i className={`far fa-heart ${poststyles.HeartOutline}`} />
+                        </span>
+                    )}
+                    {likes_count}
+                    <Link to={`/posts/${id}`}>
+                        <i class="fa-regular fa-message"></i>
+                    </Link>
+                    {comments_count}
+                </div>
+            </Card.Body>
+        </Card>
+    )
+}
 
-    export default Post
+export default Post

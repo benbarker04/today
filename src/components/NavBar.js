@@ -38,12 +38,12 @@ function NavBar() {
 
     const loggedInIcons = <>
         <NavLink to='/posts/create'><i class="fa-solid fa-plus"></i>Add Post</NavLink>
-        <NavLink to='/liked'><i class="fa-solid fa-thumbs-up"></i>Likes</NavLink>
+        <NavLink to='/feed'><i class="fa-solid fa-bars-staggered"></i>Feed</NavLink>
+        <NavLink to='/liked'><i class="fa-solid fa-thumbs-up"></i>Liked</NavLink>
         <NavLink to='/' onClick={handSignOut}><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign-Out</NavLink>
         <NavLink to={`/profiles/${currentUser?.profile_id}`}>{currentUser?.username}</NavLink>
     </>
     const loggedOutIcons = <>
-        <NavLink to='/signup'><i class="fa-solid fa-user-plus"></i>Sign-Up</NavLink>
         <NavLink to='/signin'><i class="fa-solid fa-right-to-bracket"></i>Sign-In</NavLink>
     </>
 
