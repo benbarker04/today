@@ -10,6 +10,8 @@ import { axiosReq } from '../../api/axiosDefaults'
 import Post from '../posts/Post'
 import noResults from '../../assets/6179016.png'
 import Asset from '../../components/Asset'
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function PostsPage({ message, filter = '' }) {
     const [posts, setPosts] = useState({ results: [] })
@@ -32,7 +34,7 @@ function PostsPage({ message, filter = '' }) {
         setHasLoaded(false)
         const timer = setTimeout(() => {
             fetchPosts()
-        },1000)
+        }, 1000)
         return () => {
             clearTimeout(timer)
         }
@@ -50,9 +52,17 @@ function PostsPage({ message, filter = '' }) {
                 {hasLoaded ? (
                     <>
                         {posts.results.length ? (
-                            posts.results.map((post) => (
-                                <Post key={post.id} {...post} setposts={setPosts} />
-                            ))
+                            <InfiniteScroll
+                                children={
+                                    posts.results.map((post) => (
+                                        <Post key={post.id} {...post} setposts={setPosts} />
+                                    ))
+                                }
+                                dataLength={posts.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!posts.next}
+                                next={() => fetchMoreData(posts, setPosts)}
+                            />
                         ) : (
                             <Container className={Styles.content}>
                                 <Asset src={noResults} message={message} />
