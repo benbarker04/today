@@ -16,10 +16,12 @@ function PostsPage({ message, filter = '' }) {
     const [hasLoaded, setHasLoaded] = useState(false)
     const { pathname } = useLocation()
 
+    const [query, setQuery] = useState('')
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const { data } = await axiosReq.get(`/posts/?${filter}`)
+                const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`)
                 setPosts(data)
                 setHasLoaded(true)
             } catch (err) {
@@ -28,28 +30,38 @@ function PostsPage({ message, filter = '' }) {
         }
 
         setHasLoaded(false)
-        fetchPosts()
-    }, [filter, pathname])
+        const timer = setTimeout(() => {
+            fetchPosts()
+        },1000)
+        return () => {
+            clearTimeout(timer)
+        }
+    }, [filter, query, pathname])
 
     return (
         <Row className="mt-5 h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p className="d-sm-none">Popular profiles mobile</p>
+                <i className={`fa-solid fa-magnifying-glass ${postsPageStyles.SearchIcon}`}></i>
+                <Form className={Styles.SearchBar} onSubmit={(event) => event.preventDefault()} value={query} onChange={(event) => setQuery(event.target.value)}>
+                    <Form.Control type='text' className='mr-sm-2' placeholder='Search posts' />
+                </Form>
+
                 {hasLoaded ? (
                     <>
                         {posts.results.length ? (
                             posts.results.map((post) => (
-                                <Post key={post.id} {...post} setposts={setPosts}/>
+                                <Post key={post.id} {...post} setposts={setPosts} />
                             ))
                         ) : (
                             <Container className={Styles.content}>
-                                <Asset src={noResults} message={message}/>
+                                <Asset src={noResults} message={message} />
                             </Container>
                         )}
                     </>
                 ) : (
                     <Container>
-                        <Asset spinner/>
+                        <Asset spinner />
                     </Container>
                 )}
             </Col>
