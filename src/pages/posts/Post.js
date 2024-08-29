@@ -5,6 +5,8 @@ import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import Postview from './PostView'
 import { axiosRes } from '../../api/axiosDefaults'
+import { MoreDropDown } from '../../components/MoreDropDown'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom'
 
 const Post = (props) => {
     const {
@@ -25,6 +27,20 @@ const Post = (props) => {
 
     const currentUser = useCurrentUser()
     const is_owner = currentUser?.username === owner
+    const history = useHistory()
+
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`)
+    }
+
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/posts/${id}`)
+            history.goBack()
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     const handleLike = async () => {
         try {
@@ -68,7 +84,7 @@ const Post = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && Postview && "..."}
+                        {is_owner && <MoreDropDown handleEdit={handleEdit} handleDelete={handleDelete}/>}
                     </div>
                 </Media>
             </Card.Body>
