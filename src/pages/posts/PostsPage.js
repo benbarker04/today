@@ -45,8 +45,8 @@ function PostsPage({ message, filter = '' }) {
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p className="d-sm-none">Popular profiles mobile</p>
                 <i className={`fa-solid fa-magnifying-glass ${postsPageStyles.SearchIcon}`}></i>
-                <Form className={Styles.SearchBar} onSubmit={(event) => event.preventDefault()} value={query} onChange={(event) => setQuery(event.target.value)}>
-                    <Form.Control type='text' className='mr-sm-2' placeholder='Search posts' />
+                <Form className={postsPageStyles.SearchBar} onSubmit={(event) => event.preventDefault()} value={query}>
+                    <Form.Control type='text' className='mr-sm-2' placeholder='Search posts' onChange={(event) => setQuery(event.target.value)}/>
                 </Form>
 
                 {hasLoaded ? (
@@ -55,7 +55,7 @@ function PostsPage({ message, filter = '' }) {
                             <InfiniteScroll
                                 children={
                                     posts.results.map((post) => (
-                                        <Post key={post.id} {...post} setposts={setPosts} />
+                                        <Post key={post.id} {...post} setPosts={setPosts} />
                                     ))
                                 }
                                 dataLength={posts.results.length}
