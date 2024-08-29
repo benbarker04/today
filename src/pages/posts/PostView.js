@@ -9,10 +9,13 @@ import Post from "./Post";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import Comment from "../comments/Comment";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
+import Asset from "../../components/Asset";
 
 function Postview() {
-  const { id } = useParams()
-  const [post, setPosts] = useState({ results: [] })
+  const { id } = useParams();
+  const [post, setPosts] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const [comments, setComments] = useState({ results: [] });
 
@@ -21,19 +24,19 @@ function Postview() {
       try {
         const [{ data: post }, { data: comments }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
-          axiosReq.get(`/comments/?post=${id}`)
-        ])
-        setPosts({ results: [post] })
-        setComments(comments)
+          axiosReq.get(`/comments/?post=${id}`),
+        ]);
+        setPosts({ results: [post] });
+        setComments(comments);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
-    handleMount()
-  }, [id])
+    };
+    handleMount();
+  }, [id]);
 
   return (
-    <Row className='mt-5 h-100'>
+    <Row className="mt-5 h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Post {...post.results[0]} setPosts={setPosts} Postview />
         <Container className={styles.Content}>
@@ -48,9 +51,21 @@ function Postview() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map((comment) => (
-                <Comment key={comment.id} {...comment} setComments={setComments} setPosts={setPosts} />
-            ))
+            <InfiniteScroll
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            >
+              {comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setComments={setComments}
+                  setPosts={setPosts}
+                />
+              ))}
+            </InfiniteScroll>
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
           ) : (
