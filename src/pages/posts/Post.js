@@ -3,17 +3,16 @@ import poststyles from '../../styles/Post.module.css'
 import { useCurrentUser } from '../../context/CurrentUserContext'
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-import Postview from './PostView'
 import { axiosRes } from '../../api/axiosDefaults'
 import { MoreDropDown } from '../../components/MoreDropDown'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom'
+
 
 const Post = (props) => {
     const {
         id,
         owner,
         profile_id,
-        profile_image,
         comments_count,
         likes_count,
         like_id,

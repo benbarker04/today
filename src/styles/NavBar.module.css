@@ -5,31 +5,31 @@
 }
 
 .NavBar a {
-    color: #cfced3;
+    color: black;
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle;
 }
 
 a:hover {
-    color: black;
+    color: gray;
     transition: color ease-in-out 0.3s;
     text-decoration: none;
 }
 
 a:hover i {
-    color: black;
+    color: gray;
     transition: color ease-in-out 0.3s;
 }
 
 i {
-    color: #cfced3;
+    color: black;
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle;
 }
 
 i:hover {
-    color: black;
+    color: gray;
     transition: color ease-in-out 0.3s;
 }

@@ -4,22 +4,28 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import styles from "../../App.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import {axiosReq} from "../../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../context/CurrentUserContext";
+import Comment from "../comments/Comment";
 
 function Postview() {
   const { id } = useParams()
-  const [post, setPost] = useState({ results : [] })
+  const [post, setPosts] = useState({ results: [] })
+  const currentUser = useCurrentUser();
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{data: post}] = await Promise.all([
-          axiosReq.get(`/posts/${id}`)
+        const [{ data: post }, { data: comments }] = await Promise.all([
+          axiosReq.get(`/posts/${id}`),
+          axiosReq.get(`/comments/?post=${id}`)
         ])
-        setPost({results: [post]})
-        console.log(post)
-      } catch (err){
+        setPosts({ results: [post] })
+        setComments(comments)
+      } catch (err) {
         console.log(err)
       }
     }
@@ -29,14 +35,28 @@ function Postview() {
   return (
     <Row className='mt-5 h-100'>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p className="d-sm-none">Popular profiles for mobile</p>
-        <Post {...post.results[0]} setPosts={setPost} Postview/>
+        <Post {...post.results[0]} setPosts={setPosts} Postview />
         <Container className={styles.Content}>
-          Comments
+          {currentUser ? (
+            <CommentCreateForm
+              profile_id={currentUser.profile_id}
+              post={id}
+              setPosts={setPosts}
+              setComments={setComments}
+            />
+          ) : comments.results.length ? (
+            "Comments"
+          ) : null}
+          {comments.results.length ? (
+            comments.results.map((comment) => (
+                <Comment key={comment.id} {...comment} setComments={setComments} setPosts={setPosts} />
+            ))
+          ) : currentUser ? (
+            <span>No comments yet, be the first to comment!</span>
+          ) : (
+            <span>No comments... yet</span>
+          )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
       </Col>
     </Row>
   );
