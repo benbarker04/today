@@ -11,6 +11,7 @@ import { useCurrentUser } from './context/CurrentUserContext';
 import PostsPage from './pages/posts/PostsPage';
 import PostEditForm from './pages/posts/PostEditForm';
 
+
 function App() {
   const currentUser = useCurrentUser()
   const profile_id = currentUser?.profile_id || ''
