@@ -7,9 +7,11 @@ import signinimage from '../../assets/GEN-Z-GENERATION-Z-iStock--Eduard-Figueres
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
+import { useRedirect } from "../../hooks/UseRedirect";
 
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser()
+    useRedirect('loggedIn')
 
     const [signInData, setSignInData] = useState({
         username: "",
@@ -25,7 +27,7 @@ function SignInForm() {
         try {
             const {data} = await axios.post("/dj-rest-auth/login/", signInData);
             setCurrentUser(data.user)
-            history.push("/");
+            history.goBack();
         } catch (err) {
             setErrors(err.response?.data);
         }

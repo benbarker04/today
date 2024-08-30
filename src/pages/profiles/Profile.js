@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom'
 import { useCurrentUser } from '../../context/CurrentUserContext'
 import { Button } from 'react-bootstrap'
 import { useSetProfileData } from '../../context/ProfileDataContext'
+import { useHistory } from "react-router";
 
 const Profile = (props) => {
     const {profile, mobile} = props

@@ -10,8 +10,10 @@ import Upload from "../../assets/output-onlinepngtools (1).png"
 import Asset from "../../components/Asset";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import {axiosReq} from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/UseRedirect";
 
 function PostCreateForm() {
+    useRedirect('loggedOut')
 
     const [errors, setErrors] = useState({})
 
