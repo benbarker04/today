@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Today
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Today is a social media platform designed to cultivate gratitude and positivity in everyday life. Our platform provides users with a space to share the highlights of their day with others in a supportive online community.
 
-## Available Scripts
+![amiresponsivetoday](https://github.com/user-attachments/assets/14399f84-5b5b-481c-b4bf-47691e5b069a)
 
-In the project directory, you can run:
+## Features
+* Navigation
+  - Featured at the top of the page, is the website in the left corner: 'Today' which links to the top of the home page from whatever page you are on.
+  - To the right is the navigation bar for 'Home' and 'Sign in' if you aren't logged in and 'Add post', 'Feed', 'Liked', sign out and the users' profile if you are logged in which links to the other pages of the website.
+  - The navigation tells the user the name of the website and makes the different pages easy to find.
 
-### `npm start`
+ ### Signed out navigation bar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ ![Todaysignedout](https://github.com/user-attachments/assets/ce16d227-7dad-4028-b239-ee742f16530a)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Signed in navigation bar
 
-### `npm test`
+![todaysignedin](https://github.com/user-attachments/assets/bce7285d-636b-4360-979d-6e55157268f3)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Sign-up Form
+ - The sign-up form allows the user to sign up to the platform quickly and easily.
+ - The form will not let you submit an empty form a message will pop up saying this if you try
+ - The form will also not let you sign up if the username is already taken or if your password is too common or too short you will get a message saying this if this happens.
+ - At the bottom of the form there is a link to the sign-in form for if the user already has an account.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ![todaysignupform](https://github.com/user-attachments/assets/e115a605-0018-41c9-b8dd-13642f2fd5a8)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Sign-in Form
+- The sign-in form allows the user to sign in so that they can Post, comment, like posts and also follow other users.
+- The form will not allow a user to submit an empty form or the incorrect sign-in details.
 
-### `npm run eject`
+## The Add Post Page
+- The add post page allows to user to post an image with a title, and some content to share with the rest of the Today community.
+- The form will not let you submit an empty title or not submit an image you will get a message saying this if tried.
+- The form will also not let you submit any other type of media that is not an image a message will also pop up saying this if a user tries to.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![todayaddpost](https://github.com/user-attachments/assets/b1658a97-61a2-4aeb-a825-13d836ebfa5f)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Profile Page
+- Each user has their own profile page which will show that user's posts, follower count and following count.
+- on the right side of the profile page is a 'popular profiles' list which shows a list of the most popular accounts, this is also on the home, feed and liked page.
+= If you are viewing another user's profile page a follow button will appear to the right of the following count which you can press to follow that user.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+![todayprofilepage](https://github.com/user-attachments/assets/34af4838-c4fd-4736-830a-3e18aa9692a7)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## The Home Page
+- when a user is logged in the home page will show you an infinite scrolling feed of posts other users have posted but if you are logged out it will show you the sign-up form.
+- Just like the profile page the home page has a popular profile list so you can follow popular users from there.
+- above the posts is a search bar where you can search posts by usernames and keywords.
+- When you click on a post it will take you to the post view page.
+- on the home page you can like posts but you can also see how many comments and likes it has.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+![todayhome](https://github.com/user-attachments/assets/083a7c34-2383-4519-b688-12d444f87ae1)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## The Liked and Feed page
+- the liked and feed pages are very similar to the home page but it will show you posts you have liked if you are on the liked page and posts of users you follow if you are on the feed page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## The post view page
+- The post view page is a more in-depth page of the post you click this is where you can edit or delete your post by clicking the 3 dots in the corner of the post.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![todaydeletepost](https://github.com/user-attachments/assets/0a3a55e0-2255-4797-ab9f-b86a9af27456)
 
-### Advanced Configuration
+- Underneath the post on this page is where you can see and post comments on other users' posts.
+- If you click the 3 little dots in the corner of the comment it will give you the same options as the posts which are to edit or delete your posts.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![todaypostcomment](https://github.com/user-attachments/assets/09cf69f4-a7bb-4ffa-ad47-43aefc6e3988)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Testing
+- I tested that this page works on different browsers: Chrome, Microsoft Edge and Safari
 
-### `npm run build` fails to minify
+- I confirmed that this project is responsive, looks good and functions on all standard screen sizes using the dev tools device toolbar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- I have confirmed that all sections and pages are all readable and easy to understand.
+
+- I have confirmed that the form works: every field requires an entry and the submit button works.
+
+## Bugs
+
+- When I deployed my project to Heroku I discovered that there were no bugs and therefore didn't need to fix any.
+
+## Validator Testing
+
+- HTML
+  - No errors were returned when passing through the official W3C validator.
+- CSS
+  - No errors were found when passing through the official (Jigsaw) validator.
+- Accessibility
+  - I have confirmed that the fonts and colours chosen are easy to read and accessible by running it through the lighthouse in dev tools.
+
+![todaylighthouse](https://github.com/user-attachments/assets/be521114-408c-40fa-83b9-a6f6c98a17ec)
+
+- This site was deployed to Heroku. The steps to deploy are as follows:
+ - Creating a new Heroku app.
+ - Linking the Heroku app to the Github repository.
+ - Click on Deploy. 
+The live link can be found here- [Today](https://bens-today-project-b2470b75d2ee.herokuapp.com/)
+
+## Credits
+
+All code was taught to me by [Code Institue](https://learn.codeinstitute.net/dashboard).
