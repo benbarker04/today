@@ -20,7 +20,6 @@ const Post = (props) => {
         content,
         image,
         updated_at,
-        Postview,
         setPosts
     } = props
 

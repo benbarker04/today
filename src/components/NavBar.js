@@ -37,14 +37,14 @@ function NavBar() {
     }
 
     const loggedInIcons = <>
-        <NavLink to='/posts/create'><i class="fa-solid fa-plus"></i>Add Post</NavLink>
-        <NavLink to='/feed'><i class="fa-solid fa-bars-staggered"></i>Feed</NavLink>
-        <NavLink to='/liked'><i class="fa-solid fa-thumbs-up"></i>Liked</NavLink>
-        <NavLink to='/' onClick={handSignOut}><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign-Out</NavLink>
+        <NavLink to='/posts/create'><i className="fa-solid fa-plus"></i>Add Post</NavLink>
+        <NavLink to='/feed'><i className="fa-solid fa-bars-staggered"></i>Feed</NavLink>
+        <NavLink to='/liked'><i className="fa-solid fa-thumbs-up"></i>Liked</NavLink>
+        <NavLink to='/' onClick={handSignOut}><i className="fa-solid fa-arrow-right-from-bracket"></i>Sign-Out</NavLink>
         <NavLink to={`/profiles/${currentUser?.profile_id}`}>{currentUser?.username}</NavLink>
     </>
     const loggedOutIcons = <>
-        <NavLink to='/signin'><i class="fa-solid fa-right-to-bracket"></i>Sign-In</NavLink>
+        <NavLink to='/signin'><i className="fa-solid fa-right-to-bracket"></i>Sign-In</NavLink>
     </>
 
     return (
@@ -56,7 +56,7 @@ function NavBar() {
                 <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className='ml-auto'>
-                        <NavLink to='/'><i class="fa-solid fa-house-chimney"></i>Home</NavLink>
+                        <NavLink to='/'><i className="fa-solid fa-house-chimney"></i>Home</NavLink>
                         {currentUser ? loggedInIcons : loggedOutIcons}
                     </Nav>
                 </Navbar.Collapse>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import CommentFormStyles from '../../styles/CommentCreateEditFrom.module.css';
@@ -9,7 +8,7 @@ import Styles from '../../App.module.css'
 import { Button } from "react-bootstrap";
 
 function CommentCreateForm(props) {
-    const { post, setPost, setComments, profile_id } = props;
+    const { post, setPost, setComments } = props;
     const [content, setContent] = useState("");
 
     const handleChange = (event) => {
