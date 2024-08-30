@@ -106,4 +106,5 @@ The live link can be found here- [Today](https://bens-today-project-b2470b75d2ee
 
 ## Credits
 
-All code was taught to me by [Code Institue](https://learn.codeinstitute.net/dashboard).
+- All code was taught to me by [Code Institue](https://learn.codeinstitute.net/dashboard).
+- The project uses React Bootstrap for UI components and styling. React Bootstrap is a popular library that provides Bootstrap components as React components.
