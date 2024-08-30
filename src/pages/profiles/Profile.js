@@ -4,10 +4,13 @@ import btnStyles from '../../styles/Buttons.module.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom'
 import { useCurrentUser } from '../../context/CurrentUserContext'
 import { Button } from 'react-bootstrap'
+import { useSetProfileData } from '../../context/ProfileDataContext'
 
 const Profile = (props) => {
     const {profile, mobile} = props
     const {id, following_id, owner} = profile
+
+    const {handleFollow} = useSetProfileData()
 
     const currentUser = useCurrentUser()
     const is_owner = currentUser?.username === owner
@@ -24,7 +27,7 @@ const Profile = (props) => {
                 following_id ? (
                     <Button variant="dark" className={`${btnStyles.button} ${btnStyles.black}`} onClick={() => {}}>Unfollow</Button>
                 ) : (
-                    <Button variant="dark" className={`${btnStyles.button} ${btnStyles.black}`} onClick={() => {}}>Follow</Button>
+                    <Button variant="dark" className={`${btnStyles.button} ${btnStyles.black}`} onClick={() => handleFollow(profile)}>Follow</Button>
                 )
             )}
         </div>

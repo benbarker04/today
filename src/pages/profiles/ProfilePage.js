@@ -14,13 +14,12 @@ import { Button } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
-import NoResults from '../../assets/6179016.png'
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
     const { id } = useParams();
-    const setProfileData = useSetProfileData();
+    const {setProfileData, handleFollow} = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results
     const is_owner = currentUser?.username === profile?.owner
@@ -78,7 +77,7 @@ function ProfilePage() {
                                 unfollow
                             </Button>
                         ) : (
-                            <Button variant="dark" className={`${btnStyles.black} ${btnStyles.button}`} onClick={() => { }}>
+                            <Button variant="dark" className={`${btnStyles.black} ${btnStyles.button}`} onClick={() => handleFollow(profile)}>
                                 follow
                             </Button>
                         ))}
@@ -105,7 +104,6 @@ function ProfilePage() {
                 />
             ) : (
                 <Asset
-                    src={NoResults}
                     message={`No results found, ${profile?.owner} hasn't posted yet.`}
                 />
             )}
